@@ -349,6 +349,8 @@ export default {
                     layer.remove();
             });
             leaflet.polygon(droneLabLimits, {color: 'white'}).addTo(map);
+            leaflet.polygon(finalBase, {color: '#D301F9', fillColor: '#D301F9', fillOpacity: 0.5}).addTo(map);
+            paintDrone();
         }
 
         function nextPlayer(){
@@ -440,6 +442,7 @@ export default {
         function selectScenario(){
             createScenarioButtonDisabled.value = true;
             scenariosShowing.value = true;
+            creatingScenario.value = false;
         }
 
         function createScenario(){

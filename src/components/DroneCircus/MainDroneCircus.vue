@@ -89,7 +89,7 @@ export default defineComponent({
             else if(connectionMode.value == "Local"){
                 external_broker_address = "10.10.10.1"
             }
-            let port = 8000;           
+            let port = 8083;           
             createClient(external_broker_address, port);
         })
         
@@ -181,10 +181,10 @@ export default defineComponent({
                     clientAutopilot = mqtt.connect('mqtt://'+external_broker_address+':'+port) //proba a connectar-se
                 }
                 else if(external_broker_address == 'broker.hivemq.com'){
-                    clientAutopilot = mqtt.connect('ws://'+external_broker_address+':'+port+'/mqtt') //proba a connectar-se
+                    clientAutopilot = mqtt.connect('wss://'+external_broker_address+':'+port+'/mqtt') //proba a connectar-se
                 }
                 else if(external_broker_address == 'classpip.upc.edu'){
-                    clientAutopilot = mqtt.connect('ws://'+external_broker_address+':'+port+'/mqtt', {
+                    clientAutopilot = mqtt.connect('wss://'+external_broker_address+':8883/mqtt', {
                         clean: false,
                         keepalive: 60,
                         clientId: "dashboardGames2",
